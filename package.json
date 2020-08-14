@@ -18,6 +18,7 @@
   "homepage": "https://github.com/MrTops/MiscBot#readme",
   "dependencies": {
     "discord.js": "^12.2.0",
-    "moment": "^2.27.0"
+    "moment": "^2.27.0",
+    "utils": "^0.3.1"
   }
 }
