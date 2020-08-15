@@ -16,6 +16,7 @@ const config = require('./config.json');
 const token = config.Token;
 const prefix = config.Prefix;
 bot.Prefix = prefix;
+bot.DevId = config.DeveloperId;
 
 //Load commands
 bot.Commands = new Collection();
