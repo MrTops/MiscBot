@@ -50,6 +50,7 @@ bot.on('message', async (message) => {
     if (message.channel.type != "text") return;
     if (message.author.bot) return;
     if (message.content.startsWith(`<@!${bot.user.id}>`)) {
+        bot.Commands.get('help').run(bot, message, ['all']);
         return;
     };
 
