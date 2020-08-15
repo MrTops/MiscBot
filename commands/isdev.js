@@ -1,7 +1,7 @@
 const { log } = require('../utils/log');
 
 exports.run = async (bot, message, args) => {
-    response = message.author.id == bot.DevId ? "This user **is** the bot developer!" : "This user is **NOT** the bot developer"
+    response = message.author.id == bot.DevId ? `<@!${message.author.id}> **is** the bot developer!` : `<@!${message.author.id}> is **NOT** the bot developer`
     message.channel.send(response).catch(err=>log);
     return true;
 };
