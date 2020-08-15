@@ -48,5 +48,6 @@ exports.run = async (bot, message, args) => {
 
 exports.Config = {
     Command: "fuck",
+    Description: "just try it",
     Usage: "fuck <recipient : mention, username>"
 };
