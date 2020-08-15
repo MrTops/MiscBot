@@ -42,7 +42,7 @@ readdir('./commands', (err, files) => {
 //events
 bot.on('ready', async () => {
     log(`bot ready on ${bot.guilds.cache.array().length} servers :p`);
-    bot.user.setActivity('..help 4 help | must have dms open!', { 'type': 'PLAYING' });
+    bot.user.setActivity('"..help" 4 help | must have dms open!', { 'type': 'PLAYING' });
 });
 
 bot.on('message', async (message) => {
