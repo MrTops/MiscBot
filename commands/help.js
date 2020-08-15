@@ -40,7 +40,7 @@ exports.run = async (bot, message, args) => {
                 let description = "";
                 page.forEach(command => {
                     let config = command.Config
-                    description += `Command: ${config.Command}\nDescription: ${config.Description}\nUsage: ${config.Usage}${config.Aliases ? `\nUsage: ${config.Aliases.join(', ')}` : ''}\n\n`;
+                    description += `Command: ${config.Command}\nDescription: ${config.Description}\nUsage: ${config.Usage}${config.Aliases ? `\nAliases: ${config.Aliases.join(', ')}` : ''}\n\n`;
                 });
                 currentPageEmbed.setDescription(description);
                 message.author.send(currentPageEmbed).catch(err=>log)
@@ -52,12 +52,12 @@ exports.run = async (bot, message, args) => {
                 return true;
             };
             let config = (bot.Commands.get(args[0]) || bot.Aliases.get(args[0])).Config;
-             if (!(await message.author.send(new MessageEmbed()
+            if (!(await message.author.send(new MessageEmbed()
                 .setColor(generateColor())
                 .setTimestamp()
                 .setAuthor(bot.user.username, bot.user.avatarURL(), 'https://github.com/MrTops/MiscBot')
                 .setTitle(`Info for \"${args[0]}\" command.`)
-                .setDescription(`Command: ${config.Command}\nDescription: ${config.Description}\nUsage: ${config.Usage}${config.Aliases ? `\nUsage: ${config.Aliases.join(', ')}` : ''}`)
+                .setDescription(`Command: ${config.Command}\nDescription: ${config.Description}\nUsage: ${config.Usage}${config.Aliases ? `\nAliases: ${config.Aliases.join(', ')}` : ''}`)
             ).catch(err=>log))) {
                 sendError(`Was unable to send dm, are your dms off??`, 10, message.channel)
             };
@@ -83,7 +83,7 @@ exports.run = async (bot, message, args) => {
         let description = "";
         pages[args[0]-1].forEach(command => {
             let config = command.Config;
-            description += `Command: ${config.Command}\nDescription: ${config.Description}\nUsage: ${config.Usage}${config.Aliases ? `\nUsage: ${config.Aliases.join(', ')}` : ''}\n\n`;
+            description += `Command: ${config.Command}\nDescription: ${config.Description}\nUsage: ${config.Usage}${config.Aliases ? `\nAliases: ${config.Aliases.join(', ')}` : ''}\n\n`;
         });
         currentPageEmbed.setDescription(description);
         if (!(await message.author.send(currentPageEmbed).catch(err=>log))) {
