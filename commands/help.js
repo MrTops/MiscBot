@@ -30,9 +30,8 @@ exports.run = async (bot, message, args) => {
     if (isNaN(args[0])) {
         // specific command
         if (args[0].toLowerCase() == "all") {
-            let success = true;
             let i = 1;
-            commandPages(bot).forEach(async page => {
+            commandPages(bot).forEach(page => {
                 const currentPageEmbed = new MessageEmbed()
                     .setColor(generateColor())
                     .setTimestamp()
@@ -44,13 +43,9 @@ exports.run = async (bot, message, args) => {
                     description += `Command: ${config.Command}\nDescription: ${config.Description}\nUsage: ${config.Usage}${config.Aliases ? `\nUsage: ${config.Aliases.join(', ')}` : ''}\n\n`;
                 });
                 currentPageEmbed.setDescription(description);
-                success = (await message.author.send(currentPageEmbed).catch(err=>log)) && success ? true : false;
+                message.author.send(currentPageEmbed).catch(err=>log)
                 i++;
             });
-            if (!success) {
-                sendError(`Was unable to send dm, are your dms off??`, 10, message.channel);
-                return true;
-            };
         }else {
             if (!bot.Commands.get(args[0]) && !bot.Aliases.get(args[0])) {
                 sendError(`Was unable to find the command \`\`${args[0]}\`\``, 8, message.channel);
