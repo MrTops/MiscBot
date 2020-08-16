@@ -16,7 +16,7 @@ exports.run = async (bot, message, args) => {
         .setTitle(`Information about ${target.username}`)
         .setColor(generateColor())
         .setTimestamp()
-        .setDescription(`Username: ${target.username}\nIsBot?: ${target.bot}\nCreation: ${target.createdAt}\nAvatarURL: ${target.avatarURL()}${target.lastMessage ? `\nLast Message in \`\`${target.lastMessage.guild.name}\`\` content \`\`${target.lastMessage.content}\`\`` : ''}`)
+        .setDescription(`Username: ${target.username}\nIsBot?: ${target.bot}\nCreation: ${target.createdAt}\nAvatarURL: ${target.avatarURL()}${target.lastMessage ? `\nLast Message in \`\`${target.lastMessage.guild.name}\`\` content \`\`${target.lastMessage.content}\`\`` : ''}`)    
     ).catch(err=>log);
 
     return true;
